@@ -1,7 +1,8 @@
 weTransfer
 
 Index.php
-	-> Form
+
+	Form
 		-> Partie glisser/déposer fichier
 		-> Partie visualisation des fichiers
 		-> Mail/Objet/Message
