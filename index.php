@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <h1>Bonjour !</h1>
+    <?php
+    require_once('./assets/php/file.php');
+    ?>
 </body>
 </html>
