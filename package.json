@@ -1,0 +1,23 @@
+{
+  "name": "NousTransferons",
+  "version": "0.0.1",
+  "description": "ServiceEnvoieFichier",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcalise6891/tp_weTransfer.git"
+  },
+  "author": "jcalise6891",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcalise6891/tp_weTransfer/issues"
+  },
+  "homepage": "https://github.com/jcalise6891/tp_weTransfer#readme"
+}
