@@ -33,4 +33,22 @@ function reArrayFiles($file_post){
     return $file_array;
 }
 
+function zipFiles($file_post,$error){
+
+    // echo 'En cours de zip';
+    $file_count = count($file_post);
+    $zip = new ZipArchive();
+
+    $zip_name = dirname(__DIR__,2)."/upload/".time().'.zip';
+    if($zip->open($zip_name, ZipArchive::CREATE) !== TRUE){
+        $error .= "Cannot create zip file";
+    }
+
+    for ($i=0; $i < $file_count ; $i++) { 
+
+        $zip->addFile($file_post[$i]['tmp_name'],$file_post[$i]['name']);
+    }
+    $zip->close();
+}
+
 ?>
