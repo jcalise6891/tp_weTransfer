@@ -1,5 +1,7 @@
 <?php
 
+require_once('./vendor/autoload.php');
+
 $phpFileUploadErrors = array( // Attribue un code erreur
     0 => 'There is no error, the file uploaded with success',
     1 => 'The uploaded files exceeds the upload_max_filesize directive in php.ini',
@@ -33,22 +35,46 @@ function reArrayFiles($file_post){
     return $file_array;
 }
 
+//Methode création de zip à partir de fichier POST / Retourne une chaîne de caractère avec le nom du fichier créer
 function zipFiles($file_post,$error){
 
-    // echo 'En cours de zip';
     $file_count = count($file_post);
     $zip = new ZipArchive();
 
-    $zip_name = dirname(__DIR__,2)."/upload/".time().'.zip';
+    $zip_name = dirname(__DIR__,2)."\\upload\\".time().'.zip';
     if($zip->open($zip_name, ZipArchive::CREATE) !== TRUE){
         $error .= "Cannot create zip file";
     }
-
     for ($i=0; $i < $file_count ; $i++) { 
 
         $zip->addFile($file_post[$i]['tmp_name'],$file_post[$i]['name']);
     }
-    $zip->close();
+    $temp_zipName = explode("\\",$zip_name);    
+    $zip->close(); 
+
+    return end($temp_zipName);
 }
+
+//Methode de création et d'envoie d'email
+function sendMail($m_adresseExp,$m_adresseDest,$m_object,$m_content){
+
+    if($_SERVER['SERVER_NAME'] == 'localhost'){
+
+        $transport = (new Swift_SmtpTransport('smtp.mailtrap.io', 465))
+            ->setUsername('9a060fbc2717cb')
+            ->setPassword('9ed3f5e7c06994')
+        ;
+    }
+    else{
+        $transport = new Swift_SendmailTransport();
+    }    
+    $mailer = new Swift_Mailer($transport);
+
+    $message = (new Swift_Message($m_object))
+        ->setFrom($m_adresseExp)
+        ->setTo($m_adresseDest)
+        ->setBody($m_content)
+    ;
+}   
 
 ?>

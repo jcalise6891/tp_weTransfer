@@ -9,6 +9,7 @@
 /node_modules
 /upload
 /testFile
+/vendor
 
 # profiling files
 chrome-profiler-events.json

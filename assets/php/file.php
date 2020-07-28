@@ -6,13 +6,11 @@
 
     <?php
         $error = "";
-        $destination = "../../upload/";
     
         require_once('function.php');
         if(isset($_FILES['userfile']))
         {
             $file_array = reArrayFiles($_FILES['userfile']);
-            //pre_r($file_array);
             for ($i=0; $i <count($file_array) ; $i++) { 
                 if($file_array[$i]['error']){
                     ?>
@@ -33,6 +31,6 @@
                     <?php
                 }
             }
-            zipFiles($file_array,$error);
+           $m_zipName = zipFiles($file_array,$error);
         }
     ?>
