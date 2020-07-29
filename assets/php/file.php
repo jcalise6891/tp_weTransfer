@@ -1,15 +1,18 @@
-    <form name="zip"action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
+<?php
+session_start();
+?>
+    
+    <form class="d-flex justify-content-around"name="zip" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
     <?php echo $error; ?>
     <input type="file" name="userfile[]" value="" multiple="">
-    <input type="submit" name ="submit" value="Upload">
+    <input type="submit" name ="submitFichier" value="Upload">
     </form>
 
     <?php
         $error = "";
-    
+        
         require_once('function.php');
-        if(isset($_FILES['userfile']))
-        {
+        if(isset($_FILES['userfile'])){
             $file_array = reArrayFiles($_FILES['userfile']);
             for ($i=0; $i <count($file_array) ; $i++) { 
                 if($file_array[$i]['error']){
@@ -31,6 +34,7 @@
                     <?php
                 }
             }
-           $m_zipName = zipFiles($file_array,$error);
+            $_SESSION['zipName'] = zipFiles($file_array,$error);
+            pre_r($_SESSION);           
         }
     ?>

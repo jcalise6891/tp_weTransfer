@@ -73,8 +73,11 @@ function sendMail($m_adresseExp,$m_adresseDest,$m_object,$m_content){
     $message = (new Swift_Message($m_object))
         ->setFrom($m_adresseExp)
         ->setTo($m_adresseDest)
-        ->setBody($m_content)
+        ->setBody($m_content,'text/html')
     ;
+
+    $result = $mailer->send($message);
+    return $result;
 }   
 
 ?>
