@@ -18,12 +18,12 @@ else{
 <body>
     <div class="bg d-flex h-100 align-items-center ">
         <div class="bg-light container py-5">
-            <div class="col-md-5 col-12 mx-auto flex-column">
+            <div class="col-md-8 col-12 mx-auto flex-column">
                 <?php
                 require_once('./assets/php/file.php');
                 echo '
                 </div>
-                <div class="col-md-5 col-12 mx-auto mb-3 pb-3">';
+                <div class="col-md-8 col-12 mx-auto mb-3 pb-3">';
            
                 require_once('./assets/php/mail.php');
                 ?>

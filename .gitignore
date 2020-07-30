@@ -7,8 +7,8 @@
 
 # dependencies
 /node_modules
-/upload
-/testFile
+/assets/upload
+/assets/testFile
 /vendor
 
 # profiling files

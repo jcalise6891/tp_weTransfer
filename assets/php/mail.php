@@ -20,8 +20,6 @@ session_start();
 require_once('function.php');
 
 if(isset($_POST['submitMail'])){
-    var_dump($_SESSION);
-    echo $_SESSION['zipName'];
     $zip_name = $_SESSION['zipName'];
     $m_destmail = $_POST['emailDest'];
     $m_expmail  = $_POST['emailExp'];
@@ -35,9 +33,9 @@ if(isset($_POST['submitMail'])){
 
     // $m_content = '<html><a href='.$string.'upload/'.$zip_name.'>Download File</a></html>';
 
-    $m_content = '<html><a href='.$string.'index.php?page=download&id='.$zip_name.'>Download File</a></html>';
+    // $m_content = '<html><a href='.$string.'index.php?page=download&id='.$zip_name.'>Download File</a></html>';
 
-    // $m_content = '<html><a href='.$string.'download/'.$zip_name.'>Download File</a></html>';
+     $m_content = '<html><a href='.$string.'download/'.$zip_name.'>Download File</a></html>';
 
     sendMail($m_expmail,$m_destmail,$m_object,$m_content);
 }

@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-              <a href="http://localhost/TP/weTransfer/upload/<?php echo $_GET['id']?>" download><button>Download</button></a>  
+              <a href="http://localhost/TP/weTransfer/assets/upload/<?php echo $_GET['id']?>" download><button>Download</button></a>  
             </div>
         </div>
     </div>

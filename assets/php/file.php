@@ -4,6 +4,7 @@ session_start();
     
     <form class="d-flex justify-content-around"name="zip" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
     <?php echo $error; ?>
+    <input name="MAX_FILE_SIZE" value="10485760" type="hidden"/>
     <input type="file" name="userfile[]" value="" multiple="">
     <input type="submit" name ="submitFichier" value="Upload">
     </form>
@@ -34,7 +35,7 @@ session_start();
                     <?php
                 }
             }
-            $_SESSION['zipName'] = zipFiles($file_array,$error);
-            pre_r($_SESSION);           
+            
+            $_SESSION['zipName'] = zipFiles($file_array,$error);         
         }
     ?>

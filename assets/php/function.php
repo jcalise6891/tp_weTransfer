@@ -38,10 +38,12 @@ function reArrayFiles($file_post){
 //Methode création de zip à partir de fichier POST / Retourne une chaîne de caractère avec le nom du fichier créer
 function zipFiles($file_post,$error){
 
+    echo dirname(__DIR__,2);
+
     $file_count = count($file_post);
     $zip = new ZipArchive();
 
-    $zip_name = dirname(__DIR__,2)."\\upload\\".time().'.zip';
+    $zip_name = dirname(__DIR__,2)."\\assets\\upload\\".time().'.zip';
     if($zip->open($zip_name, ZipArchive::CREATE) !== TRUE){
         $error .= "Cannot create zip file";
     }
