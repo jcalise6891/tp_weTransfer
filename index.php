@@ -20,7 +20,7 @@ else{
     <body>
         <div class="main h-100 w-100" id="dropZone">
         </div>
-            <div class="bg-dark d-flex flex-column h-100 justify-content-center">
+            <div class="bg-dark d-flex flex-column justify-content-center">
                 <div class="container">
                     <div class="col-12 text-center mx-auto pb-5">
                     <h1>WeTransferPerso</h1>
