@@ -1,0 +1,13 @@
+$dark : #1B262C;
+$m_blue : #3282b8;
+$white : #FFFFFF;
+$text-muted : $white;
+
+$theme-colors: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "m_blue" : $m_blue
+  ),
+  $theme-colors
+);

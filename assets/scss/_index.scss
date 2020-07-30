@@ -6,3 +6,19 @@ body{
 label{
     margin:1rem;
 }
+
+h1{
+    color:#3282b8;
+}
+
+label{
+    color:white;
+}
+
+.main{
+    z-index: 999;
+    position:fixed;
+    visibility: hidden;
+    opacity: 0.6;
+    background: grey;
+}

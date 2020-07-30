@@ -38,8 +38,6 @@ function reArrayFiles($file_post){
 //Methode création de zip à partir de fichier POST / Retourne une chaîne de caractère avec le nom du fichier créer
 function zipFiles($file_post,$error){
 
-    echo dirname(__DIR__,2);
-
     $file_count = count($file_post);
     $zip = new ZipArchive();
 
