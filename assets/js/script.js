@@ -1,4 +1,7 @@
 const dropZone = document.getElementById('dropZone');
+let formData = new FormData();
+let form = document.getElementById('formulaire');
+// const video = videojs('bg-video');
 
 function showDropZone(){
     dropZone.style.visibility = "visible";
@@ -28,18 +31,21 @@ function handleFiles(files){
 }
 
 function uploadFile(file){
-    let url = 'index.php'
-    let formData = new FormData();
 
-    formData.append('file',file);
-
-    fetch(url,{
-        method: 'POST',
-        body:formData
-    })
-    .then(() =>{})
-    .catch(() =>{})
+    formData.append('userfile',file);
+    for (var value of formData.values()) {
+        console.log(value); 
+     }
 }
+
+// function togglePause(){
+//     if (video.paused()){
+//         video.play();
+//     }
+//     else{
+//         video.pause();
+//     }
+// }
 
 window.addEventListener('dragenter', () => {
     showDropZone();
@@ -53,4 +59,32 @@ dropZone.addEventListener('dragleave',function(e){
 });
 
 dropZone.addEventListener('drop',handleDrop);
+
+form.addEventListener('submit', (e) => {
+
+    let url = './assets/php/file.php'
+    e.preventDefault();
+
+    let formDat = new FormData(form);
+
+    for (var value of formDat.values()) {
+        console.log(value); 
+    }
+
+    fetch(url,{
+        method: 'POST',
+        // headers:{
+        //     'X-Requested-With':'xmlhttprequest'
+        // },
+        body:formData
+    })
+    // .then( response => response.json())
+    // .then(data => console.log(data));
+    .then(response => console.log(response));
+
+})
+
+
+
+// dropZone.addEventListener('click', togglePause);
 
